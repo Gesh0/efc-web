@@ -1,5 +1,6 @@
 ---
-
+import Header from '../components/Header'
+import 'lenis/dist/lenis.css'
 ---
 
 <html lang="en">
@@ -10,8 +11,24 @@
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro</title>
+		<!--  -->
+		<link rel="stylesheet" href="src/css/reset.css" />
+		<link rel="stylesheet" href="src/css/type.css" />
+		<link rel="stylesheet" href="src/css/structure.css" />
+		<link rel="stylesheet" href="src/css/utils.css" />
+		<link rel="stylesheet" href="src/css/breakpoints.css" />
 	</head>
 	<body>
-		<h1>Astro</h1>
+		<!-- <Header /> -->
+		<div class="scroll">
+			<p class="scroll-target">Hello</p>
+		</div>
 	</body>
 </html>
+
+<script>
+	import '../scripts/scroll.js'
+	import { fadeUp } from '../scripts/animations.js'
+
+	document.querySelectorAll('.scroll-target').forEach((el) => fadeUp(el))
+</script>

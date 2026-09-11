@@ -1,0 +1,157 @@
+.scroll {
+  height: 200vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.scroll-target {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.sb {
+  justify-content: space-between;
+}
+.ac {
+  align-items: center;
+}
+
+/* gap */
+.g0 {
+  gap: 0rem;
+}
+.g05 {
+  gap: 0.5rem;
+}
+.g1 {
+  gap: 1rem;
+}
+.g2 {
+  gap: 2rem;
+}
+.g4 {
+  gap: 4rem;
+}
+.g8 {
+  gap: 8rem;
+}
+
+/* padding */
+.p0 {
+  padding: 0rem;
+}
+.p05 {
+  padding: 0.5rem;
+}
+.p1 {
+  padding: 1rem;
+}
+.p2 {
+  padding: 2rem;
+}
+.p4 {
+  padding: 4rem;
+}
+.p8 {
+  padding: 8rem;
+}
+
+/* padding inline */
+.px0 {
+  padding-inline: 0rem;
+}
+.px05 {
+  padding-inline: 0.5rem;
+}
+.px1 {
+  padding-inline: 1rem;
+}
+.px2 {
+  padding-inline: 2rem;
+}
+.px4 {
+  padding-inline: 4rem;
+}
+.px8 {
+  padding-inline: 8rem;
+}
+
+/* padding block */
+.py0 {
+  padding-block: 0rem;
+}
+.py05 {
+  padding-block: 0.5rem;
+}
+.py1 {
+  padding-block: 1rem;
+}
+.py2 {
+  padding-block: 2rem;
+}
+.py4 {
+  padding-block: 4rem;
+}
+.py8 {
+  padding-block: 8rem;
+}
+
+/* margin */
+.m0 {
+  margin: 0rem;
+}
+.m05 {
+  margin: 0.5rem;
+}
+.m1 {
+  margin: 1rem;
+}
+.m2 {
+  margin: 2rem;
+}
+.m4 {
+  margin: 4rem;
+}
+.m8 {
+  margin: 8rem;
+}
+
+/* margin inline */
+.mx0 {
+  margin-inline: 0rem;
+}
+.mx05 {
+  margin-inline: 0.5rem;
+}
+.mx1 {
+  margin-inline: 1rem;
+}
+.mx2 {
+  margin-inline: 2rem;
+}
+.mx4 {
+  margin-inline: 4rem;
+}
+.mx8 {
+  margin-inline: 8rem;
+}
+
+/* margin block */
+.my0 {
+  margin-block: 0rem;
+}
+.my05 {
+  margin-block: 0.5rem;
+}
+.my1 {
+  margin-block: 1rem;
+}
+.my2 {
+  margin-block: 2rem;
+}
+.my4 {
+  margin-block: 4rem;
+}
+.my8 {
+  margin-block: 8rem;
+}
