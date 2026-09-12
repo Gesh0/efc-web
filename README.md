@@ -1,7 +1,8 @@
 # TODO
 
 - [X] text hierarchy for h6-20
-- [ ] add github webhook 
+- [X] add github webhook 
+- [X] fix css routing 
 - [ ] Cloudflare deploy hooks 
 - [ ] toggles FAQ | Service
 - [ ] clean up animations code

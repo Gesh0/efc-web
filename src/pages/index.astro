@@ -6,6 +6,11 @@ import Benefits from '../components/Benefits.astro'
 import ServiceSelect from '../components/ServiceSelect.astro'
 import FAQ from '../components/FAQ.jsx'
 import 'lenis/dist/lenis.css'
+import '../css/reset.css'
+import '../css/type.css'
+import '../css/structure.css'
+import '../css/utils.css'
+import '../css/breakpoints.css'
 ---
 
 <html lang="en">
@@ -15,12 +20,6 @@ import 'lenis/dist/lenis.css'
 		<link rel="icon" href="/icon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<!--  -->
-		<link rel="stylesheet" href="src/css/reset.css" />
-		<link rel="stylesheet" href="src/css/type.css" />
-		<link rel="stylesheet" href="src/css/structure.css" />
-		<link rel="stylesheet" href="src/css/utils.css" />
-		<link rel="stylesheet" href="src/css/breakpoints.css" />
 	</head>
 	<body>
 		<Header />
