@@ -30,6 +30,11 @@
   will-change: width, opacity;
 }
 
+.faq-clip {
+  overflow: hidden;
+  will-change: height, opacity;
+}
+
 .sb {
   border-bottom: 1px solid hsl(0, 0%, 90%);
 }
