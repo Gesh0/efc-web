@@ -38,8 +38,10 @@ import '../css/breakpoints.css'
 	import { fadeUp } from '../scripts/animations.js'
 	import { collapseLogoOnScroll } from '../scripts/header.js'
 	import { initParallax } from '../scripts/parallax.js'
+	import { initServiceSelect } from '../scripts/serviceSelect.js'
 
 	document.querySelectorAll('.scroll-target').forEach((el) => fadeUp(el))
 	collapseLogoOnScroll()
 	initParallax()
+	initServiceSelect()
 </script>

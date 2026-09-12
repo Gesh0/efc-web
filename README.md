@@ -4,8 +4,13 @@
 - [X] add github webhook 
 - [X] fix css routing 
 - [X] Cloudflare deploy hooks 
-- [ ] toggles FAQ | Service <
+- [X] toggles FAQ 
+- [X] toggles Services
+- [X] staggered logo animation
 - [ ] clean up animations code
+- [ ] product categories animation
+- [ ] prelim copy
+- [ ] grid supporting material
 - [ ] Contact us animation
 - [ ] responsivity | breakpoints
 - [ ] clean up css

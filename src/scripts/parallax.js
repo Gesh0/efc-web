@@ -10,7 +10,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
  * @param {Element} image - the oversized image inside it
  * @param {{ yPercent?: number }} [opts]
  */
-export function parallaxImage(container, image, { yPercent = 15 } = {}) {
+export function parallaxImage(container, image, { yPercent = 8 } = {}) {
 	if (!container || !image) return
 
 	// Image starts shifted up, ends shifted down (or vice versa) so the
@@ -25,7 +25,7 @@ export function parallaxImage(container, image, { yPercent = 15 } = {}) {
 				trigger: container,
 				start: 'top bottom',
 				end: 'bottom top',
-				scrub: 1.5,
+				scrub: 1,
 			},
 		},
 	)
@@ -33,7 +33,8 @@ export function parallaxImage(container, image, { yPercent = 15 } = {}) {
 
 export function initParallax() {
 	gsap.utils.toArray('.parallax-frame').forEach((container) => {
-		const image = container.querySelector('.parallax-image')
-		parallaxImage(container, image)
+		container.querySelectorAll('.parallax-image').forEach((image) => {
+			parallaxImage(container, image)
+		})
 	})
 }

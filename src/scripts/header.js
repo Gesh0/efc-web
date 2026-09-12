@@ -10,21 +10,28 @@ export function collapseLogoOnScroll() {
 	rest.forEach((el, i) => gsap.set(el, { width: widths[i] }))
 
 	const collapse = () => {
-		gsap.to(rest, { width: 0, opacity: 0, ease: 'power2.out', duration: 0.6, overwrite: true })
-		gsap.to(wrap, { gap: 0, ease: 'power2.out', duration: 0.6, overwrite: true })
+		gsap
+			.timeline()
+			.to(rest, { opacity: 0, ease: 'power2.out', duration: 0.3, overwrite: 'auto' }, 0)
+			.to(rest, { width: 0, ease: 'power2.out', duration: 0.2, overwrite: 'auto' }, 0.1)
+			.to(wrap, { gap: 0, ease: 'power2.out', duration: 0.2, overwrite: 'auto' }, 0.1	)
 	}
 
 	const expand = () => {
-		rest.forEach((el, i) =>
-			gsap.to(el, {
-				width: widths[i],
-				opacity: 1,
-				ease: 'power3.inOut', // distinct feel for the "return" direction
-				duration: 0.3,
-				overwrite: true,
-			}),
-		)
-		gsap.to(wrap, { gap: '0.5rem', ease: 'power3.inOut', duration: 0.2, overwrite: true })
+		gsap
+			.timeline()
+			.to(wrap, { gap: '0.5rem', ease: 'power3.inOut', duration: 0.2, overwrite: 'auto' }, 0)
+			.to(
+				rest,
+				{
+					width: (i) => widths[i],
+					ease: 'power3.inOut',
+					duration: 0.2,
+					overwrite: 'auto',
+				},
+				0,
+			)
+			.to(rest, { opacity: 1, ease: 'power2.out', duration: 0.2, overwrite: 'auto' }, 0.1)
 	}
 
 	ScrollTrigger.create({

@@ -1,41 +1,82 @@
+---
+const services = [
+	{
+		label: 'Order Fulfillment',
+		image: '/packing.jpg',
+		p1: 'Every order is picked, packed, and shipped from our network within hours of coming in, with real-time tracking from cart to doorstep.',
+		p2: 'We plug directly into your storefront, so orders flow in and tracking numbers flow back out without anyone touching a spreadsheet.',
+	},
+	{
+		label: 'Storage Warehousing',
+		image: '/man-forklift.jpg',
+		p1: 'Climate-controlled, secure facilities scale with your inventory, whether that is a hundred units or a hundred thousand.',
+		p2: 'Live stock counts and a dashboard view of every SKU mean you always know exactly what you have and where it sits.',
+	},
+	{
+		label: 'Cross Docking',
+		image: '/container.webp',
+		p1: 'Inbound shipments move straight to outbound transport with minimal handling, cutting storage time and cost.',
+		p2: 'Ideal for high-turnover goods, cross docking keeps product moving instead of sitting on a shelf.',
+	},
+	{
+		label: 'Additional Services',
+		image: '/packing.jpg',
+		p1: 'Kitting, custom packaging, returns processing, and quality checks are all handled under one roof.',
+		p2: 'Tell us what your logistics need looks like and we will build a workflow around it, not the other way around.',
+	},
+]
+---
+
 <div class="flex-col p4 g4 outline">
 	<div class="flex-col">
 		<h2>Warehousing and delivery —</h2>
 		<h2>Working together as one system</h2>
 	</div>
-	<div class="flex">
-		<div class="grow stroke-t mr05 pt2">
-			<h5 class="" style="width: min-content;">Order Fulfillment</h5>
-		</div>
-		<div class="grow stroke-t mr05 pt2">
-			<h5 class="" style="width: min-content;">Storage Warehousing</h5>
-		</div>
-		<div class="grow stroke-t mr05 pt2">
-			<h5 class="" style="width: min-content;">Cross Docking</h5>
-		</div>
-		<div class="grow stroke-t mr05 pt2">
-			<h5 class="" style="width: min-content;">Additional Services</h5>
-		</div>
+	<div class="flex" id="service-tabs">
+		{
+			services.map((service, i) => (
+				<div
+					class="grow service-tab mr05 pt2"
+					class:list={{ selected: i === 0 }}
+					data-image={service.image}
+					data-p1={service.p1}
+					data-p2={service.p2}
+				>
+					<h5 style="width: min-content;">{service.label}</h5>
+				</div>
+			))
+		}
 	</div>
-	<div
-		class="parallax-frame"
-		style="width: 100%; aspect-ratio:3/1; overflow: hidden"
-	>
-		<img
-			class="parallax-image"
-			src="/packing.jpg"
-			alt="Desktop showing a WMS system in a warehouse"
-			style="object-fit: cover; height:130%; width:100%"
-		/>
+	<div class="parallax-frame" style="width: 100%; aspect-ratio:2.5/1; overflow: hidden; position: relative;">
+		<div class="service-image-slot" id="service-image-slot-a" style="position: absolute; inset: 0; overflow: hidden;">
+			<img
+				class="parallax-image"
+				src={services[0].image}
+				alt="Desktop showing a WMS system in a warehouse"
+				style="object-fit: cover; height:130%; width:100%"
+			/>
+		</div>
+		<div class="service-image-slot" id="service-image-slot-b" style="position: absolute; inset: 0; overflow: hidden; transform: translateY(-100%);">
+			<img
+				class="parallax-image"
+				src={services[0].image}
+				alt="Desktop showing a WMS system in a warehouse"
+				style="object-fit: cover; height:130%; width:100%"
+			/>
+		</div>
 	</div>
 	<div class="flex g2">
-		<p>
-			Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim nam ducimus
-			magnam voluptate consectetur omnis neque eaque eveniet harum quibusdam.
-		</p>
-		<p>
-			Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim nam ducimus
-			magnam voluptate consectetur omnis neque eaque eveniet harum quibusdam.
-		</p>
+		<p id="service-p1">{services[0].p1}</p>
+		<p id="service-p2">{services[0].p2}</p>
 	</div>
 </div>
+
+<style>
+	.service-tab {
+		cursor: pointer;
+		border-top: 1px solid hsl(0, 0%, 90%);
+	}
+	.service-tab.selected {
+		border-top-color: black;
+	}
+</style>
