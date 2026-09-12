@@ -1,5 +1,6 @@
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import './scroll.js'
 
 /**
  * Moves an oversized image inside a clipped container as its container

@@ -4,15 +4,15 @@
 		<div class="flex g05 bold" id="logo-text">
 			<div class="flex">
 				<h5>E</h5>
-				<h5 class="logo-rest">co</h5>
+				<h5 class="logo-rest oh">co</h5>
 			</div>
 			<div class="flex">
 				<h5>F</h5>
-				<h5 class="logo-rest">ulfillment</h5>
+				<h5 class="logo-rest oh">ulfillment</h5>
 			</div>
 			<div class="flex">
 				<h5>C</h5>
-				<h5 class="logo-rest">entre</h5>
+				<h5 class="logo-rest oh">entre</h5>
 			</div>
 		</div>
 	</div>
@@ -24,3 +24,41 @@
 		<p>Contact</p>
 	</div>
 </div>
+
+<script>
+	import gsap from 'gsap'
+	import { ScrollTrigger } from 'gsap/ScrollTrigger'
+	import '../scripts/scroll.js'
+
+	const rest = gsap.utils.toArray('.logo-rest') as HTMLElement[]
+	const wrap = document.getElementById('logo-text')
+
+	if (rest.length && wrap) {
+		const widths = rest.map((el) => el.getBoundingClientRect().width)
+		rest.forEach((el, i) => gsap.set(el, { width: widths[i] }))
+
+		const collapse = () =>
+			gsap
+				.timeline({ defaults: { ease: 'power2.out', overwrite: 'auto' } })
+				.to(rest, { opacity: 0, duration: 0.3 }, 0)
+				.to(rest, { width: 0, duration: 0.2 }, 0.1)
+				.to(wrap, { gap: 0, duration: 0.2 }, 0.1)
+
+		const expand = () =>
+			gsap
+				.timeline({ defaults: { ease: 'power3.inOut', overwrite: 'auto' } })
+				.to(wrap, { gap: '0.5rem', duration: 0.2 }, 0)
+				.to(rest, { width: (i) => widths[i], duration: 0.2 }, 0)
+				.to(rest, { opacity: 1, ease: 'power2.out', duration: 0.2 }, 0.1)
+
+		ScrollTrigger.create({ start: '100px top', onEnter: collapse, onLeaveBack: expand })
+	}
+</script>
+
+<style>
+	.logo-rest {
+		display: inline-block;
+		white-space: nowrap;
+		will-change: width, opacity;
+	}
+</style>

@@ -1,13 +1,3 @@
-/* .scroll {
-  height: 200vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.scroll-target {
-  opacity: 0;
-  transform: translateY(40px);
-} */
 * {
   background-color: white;
   object-fit: cover;
@@ -23,6 +13,20 @@
   flex: 1 1 0;
 }
 
+.oh {
+  overflow: hidden;
+}
+
+.rel {
+  position: relative;
+}
+.abs {
+  position: absolute;
+}
+.inset0 {
+  inset: 0;
+}
+
 .logo-rest {
   display: inline-block;
   overflow: hidden;
@@ -33,6 +37,15 @@
 .faq-clip {
   overflow: hidden;
   will-change: height, opacity;
+}
+
+/* parallax.js requires: container overflow hidden, image taller than
+   container so there's slack for the scroll-driven translation. */
+.parallax-image {
+  object-fit: cover;
+  width: 100%;
+  height: 130%;
+  will-change: transform;
 }
 
 .sb {

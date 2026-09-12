@@ -4,7 +4,7 @@ import Hero from '../components/Hero.astro'
 import Subhero from '../components/Subhero.astro'
 import Benefits from '../components/Benefits.astro'
 import ServiceSelect from '../components/ServiceSelect.astro'
-import FAQ from '../components/FAQ.jsx'
+import FAQ2 from '../components/FAQ2.astro'
 import 'lenis/dist/lenis.css'
 import '../css/reset.css'
 import '../css/type.css'
@@ -28,20 +28,14 @@ import '../css/breakpoints.css'
 			<Subhero />
 			<Benefits />
 			<ServiceSelect />
-			<FAQ client:idle />
+			<FAQ2/>
 		</div>
 	</body>
 </html>
 
 <script>
 	import '../scripts/scroll.js'
-	import { fadeUp } from '../scripts/animations.js'
-	import { collapseLogoOnScroll } from '../scripts/header.js'
 	import { initParallax } from '../scripts/parallax.js'
-	import { initServiceSelect } from '../scripts/serviceSelect.js'
 
-	document.querySelectorAll('.scroll-target').forEach((el) => fadeUp(el))
-	collapseLogoOnScroll()
 	initParallax()
-	initServiceSelect()
 </script>

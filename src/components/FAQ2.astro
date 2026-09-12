@@ -1,0 +1,89 @@
+---
+const questions = [
+	{
+		question: 'How long does it take to get set up and integrated?',
+		answer:
+			'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam molestias eligendi saepe quia dolore magnam odit asperiores, culpa numquam provident corporis illum quo sint, eius iste iusto optio. Dolores minima fugiat laborum perspiciatis voluptatem exercitationem est totam, consequatur commodi voluptates fuga recusandae, inventore in perferendis similique, aut quasi cumque dicta!',
+	},
+	{
+		question: 'How will I know if the returned goods are damaged',
+		answer:
+			'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam molestias eligendi saepe quia dolore magnam odit asperiores, culpa numquam provident corporis illum quo sint, eius iste iusto optio.',
+	},
+	{
+		question: 'What happens if the order is damaged in transport',
+		answer:
+			'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam molestias eligendi saepe quia dolore magnam odit asperiores, culpa numquam provident corporis illum quo sint, eius iste iusto optio.',
+	},
+]
+---
+
+<div class="flex g2 p4 outline">
+	<div class="flex-col g4 grow">
+		<h2>Good things to know before working with us</h2>
+		<div id="faq2-list">
+			{
+				questions.map((item, index) => (
+					<div
+						class="faq2-item flex-col stroke-t py2"
+						data-index={index}
+						style="cursor: pointer"
+					>
+						<h5>{item.question}</h5>
+						<div class="faq2-clip oh">
+							<div class="pt1">
+								<p>{item.answer}</p>
+							</div>
+						</div>
+					</div>
+				))
+			}
+		</div>
+	</div>
+</div>
+
+<script>
+	import gsap from 'gsap'
+	import { faqMachine } from '../scripts/faqMachine.js'
+
+	function addCollapse(tl, { clip, text }) {
+		tl.to(text, { opacity: 0, duration: 0.1, ease: 'none' }, 0)
+		tl.to(clip, { height: 0, duration: 0.2, ease: 'none' }, 0)
+	}
+
+	function addExpand(tl, { clip, text }) {
+		tl.to(clip, { height: clip.scrollHeight, duration: 0.2 }, 0)
+		tl.to(text, { opacity: 1, duration: 0.1 }, 0.1)
+	}
+
+	function applyTimeline(nodes, { prev, next }) {
+		const tl = gsap.timeline({
+			defaults: { overwrite: true, ease: 'power1.out' },
+		})
+		if (prev !== -1) addCollapse(tl, nodes[prev])
+		if (next !== -1) addExpand(tl, nodes[next])
+	}
+
+	const nodes = Array.from(document.querySelectorAll('.faq2-item')).map(
+		(el) => ({
+			el,
+			clip: el.querySelector('.faq2-clip'),
+			text: el.querySelector('.faq2-clip p'),
+		}),
+	)
+
+	const faq = faqMachine(0)
+
+	nodes.forEach((node, i) => {
+		gsap.set(node.clip, { height: i === faq.get() ? 'auto' : 0 })
+		gsap.set(node.text, { opacity: i === faq.get() ? 1 : 0 })
+
+		node.el.addEventListener('click', () => applyTimeline(nodes, faq.toggle(i)))
+	})
+</script>
+
+<style>
+	.faq2-clip {
+		will-change: height, opacity;
+	}
+</style>
