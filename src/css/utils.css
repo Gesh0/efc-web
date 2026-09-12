@@ -1,4 +1,4 @@
-.scroll {
+/* .scroll {
   height: 200vh;
   display: flex;
   justify-content: center;
@@ -7,6 +7,37 @@
 .scroll-target {
   opacity: 0;
   transform: translateY(40px);
+} */
+* {
+  background-color: white;
+  object-fit: cover;
+  /* overflow: hidden; */
+}
+
+.sticky {
+  position: sticky;
+  top: 0px;
+}
+
+.grow {
+  flex: 1 1 0;
+}
+
+.logo-rest {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  will-change: width, opacity;
+}
+
+.sb {
+  border-bottom: 1px solid hsl(0, 0%, 90%);
+}
+.stroke-t {
+  border-top: 1px solid hsl(0, 0%, 90%);
+}
+.outline {
+  outline: 1px solid hsl(0, 0%, 90%);
 }
 
 .sb {
@@ -96,6 +127,46 @@
   padding-block: 8rem;
 }
 
+/* padding top */
+.pt0 {
+  padding-top: 0rem;
+}
+.pt05 {
+  padding-top: 0.5rem;
+}
+.pt1 {
+  padding-top: 1rem;
+}
+.pt2 {
+  padding-top: 2rem;
+}
+.pt4 {
+  padding-top: 4rem;
+}
+.pt8 {
+  padding-top: 8rem;
+}
+
+/* padding right */
+.pr0 {
+  padding-right: 0rem;
+}
+.pr05 {
+  padding-right: 0.5rem;
+}
+.pr1 {
+  padding-right: 1rem;
+}
+.pr2 {
+  padding-right: 2rem;
+}
+.pr4 {
+  padding-right: 4rem;
+}
+.pr8 {
+  padding-right: 8rem;
+}
+
 /* margin */
 .m0 {
   margin: 0rem;
@@ -114,6 +185,26 @@
 }
 .m8 {
   margin: 8rem;
+}
+
+/* margin right */
+.mr0 {
+  margin-right: 0rem;
+}
+.mr05 {
+  margin-right: 0.5rem;
+}
+.mr1 {
+  margin-right: 1rem;
+}
+.mr2 {
+  margin-right: 2rem;
+}
+.mr4 {
+  margin-right: 4rem;
+}
+.mr8 {
+  margin-right: 8rem;
 }
 
 /* margin inline */

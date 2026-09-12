@@ -1,6 +1,5 @@
-
-@media (min-width: --) {
-  .bp1-p{
-    padding: 1rem;
+@media (min-width: 1200px) {
+  .bp-px {
+    padding-inline: 4rem;
   }
 }
